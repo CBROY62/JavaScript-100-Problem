@@ -26,11 +26,11 @@
   console.log(innerValueGet);
 
 
-  const radious_value = innerValueGet/(2*3.14159);
+  const radious_value = innerValueGet/(2*3.14);
 
   // Access the heading and set its textContent
   const heading_secction = document.getElementsByClassName('First_heading')[0];
-  heading_secction.textContent = ` claculating value ${radious_value}`;
+  heading_secction.textContent = ` Calculating value ${radious_value}`;
 
   console.log(heading_secction);
 }
