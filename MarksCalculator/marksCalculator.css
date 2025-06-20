@@ -1,0 +1,115 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e3f2fd, #fff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main Container */
+.main.section {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+}
+
+.headingsections{
+    font-size: 25px;
+    margin-bottom: 60px;
+    font-weight: 800px;
+    color: rgb(24, 168, 235);
+
+}
+.hindimarks{
+    font-weight: 600;
+}
+
+/* Input Styles */
+input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 12px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #2196f3;
+  outline: none;
+}
+
+/* Labels (Headings for Inputs) */
+h1 {
+  font-size: 16px;
+  margin-top: 18px;
+  color: #333;
+}
+
+/* Button */
+.buttonSection {
+  width: 100%;
+  padding: 14px;
+  background-color: #2196f3;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttonSection:hover {
+  background-color: #1976d2;
+}
+
+/* Results */
+.totalMarks1,
+.Percentage1,
+.Division {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #2e3a59;
+  text-align: center;
+}
+
+/* Responsive: Small Devices */
+@media (max-width: 600px) {
+  .main.section {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 14px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .buttonSection {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .totalMarks1,
+  .Percentage1,
+  .Division {
+    font-size: 16px;
+  }
+}
