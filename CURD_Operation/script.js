@@ -79,7 +79,7 @@
 
 
 
-      /// this is eddit section after then eddit //
+/// this is eddit section after then eddit //
 
     function editSection(wrapper, namePara, emailPara, phonePara, editBtn, saveBtn) {
       const name = namePara.textContent.replace('Name: ', '');
