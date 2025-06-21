@@ -7,7 +7,7 @@ function adddataOnhead() {
     const emailtextSection = emailInputSection.value;
     console.log(emailtextSection);
 
-    // Create new elements for each entry
+    //  Create new elements for each entry///
     const namePara = document.createElement('p');
     namePara.textContent = `Name: ${textInputSection}`;
 
