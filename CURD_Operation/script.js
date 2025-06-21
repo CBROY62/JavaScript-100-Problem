@@ -9,6 +9,8 @@
 
       if (!nameValue || !emailValue || !phoneValue) return;
 
+
+        // one div section //
       const entryWrapper = document.createElement('div');
       entryWrapper.className = 'entry';
 
@@ -109,7 +111,7 @@
     
 
       //save Button  section //
-      
+
     function saveSection(wrapper, nameInput, emailInput, phoneInput, editBtn, saveBtn) {
       if (saveBtn._inputs) {
         nameInput = saveBtn._inputs.nameInput;
