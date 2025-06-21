@@ -1,163 +1,84 @@
-/* General Page Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 40px;
-}
+ body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      background: #f0f2f5;
+      color: #333;
+    }
 
-/* Container for the main content */
-.main_section {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    input {
+      margin: 8px 10px 8px 0;
+      padding: 10px;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
 
-/* Input Section Styling */
-.input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
+    button {
+      padding: 9px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
 
-.input-container input {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
+    button:hover {
+      opacity: 0.9;
+    }
 
-.buttonSection {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    .add-btn {
+      background-color: #007bff;
+      color: white;
+    }
 
-.buttonSection:hover {
-    background-color: #45a049;
-}
+    .entry {
+      background: white;
+      padding: 16px;
+      margin-top: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
 
-/* Entry Container */
-.NameSection {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+    .entry p {
+      margin: 6px 0;
+    }
 
-/* Individual Entry Card */
-.entry {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    position: relative;
-}
+    .entry .btn-group {
+      margin-top: 10px;
+    }
 
-.entry p {
-    margin: 5px 0;
-    font-size: 16px;
-}
+    .entry .btn-group button {
+      margin-right: 8px;
+    }
 
-/* Buttons in each entry */
-.entry button {
-    margin-right: 8px;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
+    .edit-btn {
+      background-color: #f0ad4e;
+      color: white;
+    }
 
-/* Individual button styles */
-.entry button:nth-child(3) {
-    background-color: #2196F3;
-    color: white;
-} /* Edit */
+    .save-btn {
+      background-color: #28a745;
+      color: white;
+    }
 
-.entry button:nth-child(4) {
-    background-color: #FF9800;
-    color: white;
-} /* Save */
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+    }
 
-.entry button:nth-child(5) {
-    background-color: #f44336;
-    color: white;
-} /* Delete */
+    @media (max-width: 600px) {
+      input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
 
-.entry button:hover {
-    opacity: 0.9;
-}
-
-/* Input fields when editing */
-.entry input[type="text"],
-.entry input[type="email"] {
-    width: 100%;
-    padding: 6px;
-    margin-top: 5px;
-    border: 1px solid #bbb;
-    border-radius: 4px;
-    font-size: 14px;
-}
-/* Enhanced Input Container */
-.input-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 25px;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Make inputs and button align nicely */
-.input-container input {
-    flex: 1 1 45%;
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-.input-container input:focus {
-    outline: none;
-    border-color: #4CAF50;
-}
-
-/* Stylish Add Button */
-.buttonSection {
-    flex: 1 1 100%;
-    padding: 12px;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.buttonSection:hover {
-    background-color: #388e3c;
-}
-@media (max-width: 600px) {
-    .input-container {
+      .btn-group {
+        display: flex;
         flex-direction: column;
-    }
+      }
 
-    .input-container input,
-    .buttonSection {
-        flex: 1 1 100%;
+      .btn-group button {
+        margin-bottom: 8px;
+      }
     }
-}
