@@ -1,4 +1,5 @@
 function adddataOnhead() {
+    
     const inputsection1 = document.getElementsByClassName('inputsection1')[0];
     const textInputSection = inputsection1.value;
     console.log(textInputSection);
