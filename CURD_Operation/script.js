@@ -21,6 +21,15 @@
       const phonePara = document.createElement('p');
       phonePara.textContent = `Phone: ${phoneValue}`;
 
+
+
+
+    //    stating section 
+
+
+
+     ///Button section  
+
       const editBtn = document.createElement('button');
       editBtn.className = 'edit-btn';
       editBtn.textContent = 'Edit';
@@ -28,7 +37,7 @@
       const saveBtn = document.createElement('button');
       saveBtn.className = 'save-btn';
       saveBtn.textContent = 'Save';
-      saveBtn.style.display = 'none';
+      
 
       const deleteBtn = document.createElement('button');
       deleteBtn.className = 'delete-btn';
@@ -38,23 +47,37 @@
       editBtn.onclick = () => editSection(entryWrapper, namePara, emailPara, phonePara, editBtn, saveBtn);
       saveBtn.onclick = () => saveSection(entryWrapper, namePara, emailPara, phonePara, editBtn, saveBtn);
 
+
+
+
+      /// all button section rape the one section od all button  //
+
       const btnGroup = document.createElement('div');
       btnGroup.className = 'btn-group';
       btnGroup.appendChild(editBtn);
       btnGroup.appendChild(saveBtn);
       btnGroup.appendChild(deleteBtn);
 
+
+      // Rape the all button section in one div section including button //
       entryWrapper.appendChild(namePara);
       entryWrapper.appendChild(emailPara);
       entryWrapper.appendChild(phonePara);
       entryWrapper.appendChild(btnGroup);
 
+
+      // show the all button section on the UI or frontend section///
       document.querySelector('.NameSection').appendChild(entryWrapper);
 
+    /// this method use of empty the inpute secction menuvelly typing the data  //
       inputName.value = '';
       inputEmail.value = '';
       inputPhone.value = '';
     }
+
+
+
+      /// this is eddit section after then eddit //
 
     function editSection(wrapper, namePara, emailPara, phonePara, editBtn, saveBtn) {
       const name = namePara.textContent.replace('Name: ', '');
@@ -81,8 +104,12 @@
       saveBtn.style.display = 'inline';
 
       saveBtn._inputs = { nameInput, emailInput, phoneInput };
-    }
 
+    }
+    
+
+      //save Button  section //
+      
     function saveSection(wrapper, nameInput, emailInput, phoneInput, editBtn, saveBtn) {
       if (saveBtn._inputs) {
         nameInput = saveBtn._inputs.nameInput;
@@ -112,6 +139,8 @@
 
       editBtn.onclick = () => editSection(wrapper, namePara, emailPara, phonePara, editBtn, saveBtn);
     }
+
+
 
     window.onload = function () {
       const demoData = [
