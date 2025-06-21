@@ -61,7 +61,7 @@
       btnGroup.appendChild(deleteBtn);
 
 
-      // Rape the all button section in one div section including button //
+    // Rape the all button section in one div section including button //
       entryWrapper.appendChild(namePara);
       entryWrapper.appendChild(emailPara);
       entryWrapper.appendChild(phonePara);
