@@ -1,5 +1,5 @@
 function adddataOnhead() {
-    
+
     const inputsection1 = document.getElementsByClassName('inputsection1')[0];
     const textInputSection = inputsection1.value;
     console.log(textInputSection);
@@ -37,6 +37,7 @@ const saveSection = ()=>{
 }
 
 const deleteSection = ()=>{
+    
     const firstemailSection = document.getElementsByClassName('emailSection')[0];
     firstemailSection.textContent = ``
 
