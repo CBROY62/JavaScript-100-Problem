@@ -26,7 +26,7 @@
 
 
 
-    //    stating section 
+    // stating section 
 
 
 
@@ -104,6 +104,7 @@
 
       editBtn.style.display = 'none';
       saveBtn.style.display = 'inline';
+      
 
       saveBtn._inputs = { nameInput, emailInput, phoneInput };
 
