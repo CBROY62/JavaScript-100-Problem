@@ -3,43 +3,35 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: #f4f4f4;
 }
 
 .main_section {
   max-width: 600px;
-  margin: 60px auto;
-  padding: 20px;
+  margin: 50px auto;
+  padding: 25px;
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-input[type="text"],
-input[type="number"] {
-  display: block;
+.inpute1,
+.inpute2 {
   width: 90%;
-  padding: 12px 15px;
+  padding: 12px;
   margin: 10px auto;
+  display: block;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
-  transition: 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
 .addSection {
   margin-top: 15px;
-  padding: 12px 25px;
-  background-color: #007bff;
+  padding: 10px 25px;
+  background-color: #28a745;
   color: white;
   font-size: 16px;
   border: none;
@@ -49,13 +41,68 @@ input[type="number"]:focus {
 }
 
 .addSection:hover {
-  background-color: #0056b3;
+  background-color: #218838;
 }
 
 .NewComponets {
   margin-top: 30px;
-  padding: 15px;
-  background-color: #e9ecef;
-  border-radius: 8px;
-  min-height: 50px;
+}
+
+/* Dynamic content styles */
+.divsection {
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  position: relative;
+}
+
+.divsection p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.divsection input[type="text"],
+.divsection input[type="number"],
+.divsection input[type="email"],
+.divsection input[type="name"] {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.divsection button {
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.divsection button:nth-child(3) {
+  background-color: #007bff;
+  color: white;
+}
+
+.divsection button:nth-child(4) {
+  background-color: #ffc107;
+  color: black;
+}
+
+.divsection button:nth-child(5) {
+  background-color: #dc3545;
+  color: white;
+}
+
+.divsection button:hover {
+  opacity: 0.9;
 }

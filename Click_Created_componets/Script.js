@@ -9,10 +9,10 @@ function adddataOnhead2() {
     DevSection1.className = "divsection";
 
     const newDevSection1 = document.createElement('p');
-    newDevSection1.textContent = `firstparra ${firstInputSection1}`;
+    newDevSection1.textContent = `Name:${firstInputSection1}`;
 
     const newDevSection2 = document.createElement('p');
-    newDevSection2.textContent = `firstparra ${sectionInputSection1}`;
+    newDevSection2.textContent = `Number: ${sectionInputSection1}`;
 
     const newbtnSection = document.createElement('button');
     newbtnSection.textContent = "Edit";
