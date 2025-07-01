@@ -6,30 +6,25 @@
 // console.log(multiplication)
 // alert(multiplication);
 // console.log(multiplication);
-  
+
 const displayINput = document.getElementById("display");
 
 function dispalyInpute(value) {
-    displayINput.value += value;
+  displayINput.value += value;
 }
-
 
 function CleardispalyInpute(value) {
-    displayINput.value = "";
+  displayINput.value = "";
 }
 
-function EvalueteValue() {
-    
+function calculate() {
+  try {
+    displayINput.value = eval(displayINput.value);
+  } catch {
+    displayINput.value = "Error";
+  }
 }
- function calculate() {
-      try {
-        displayINput.value = eval(displayINput.value);
-      } catch {
-        displayINput.value = 'Error';
-      }
-    }
 
-
-  function backspace() {
-      displayINput.value = displayINput.value.slice(0, -1);
-    }
+function backspace() {
+  displayINput.value = displayINput.value.slice(0, -1);
+}
