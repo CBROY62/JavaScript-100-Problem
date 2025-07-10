@@ -12,9 +12,9 @@ function calculate() {
   button_section.addEventListener("click", calculate);
 
 
-  const calValue = screenValue * 25.4;
+  const calValue = screenValue * 0.0328084;
   console.log(calValue);
 
   let peramiterValue = document.querySelector(".final_kg_calculated_value");
-  peramiterValue.textContent = `weight cm = ${calValue}`;
+  peramiterValue.textContent = `weight Feet = ${calValue}`;
 }

@@ -12,7 +12,7 @@ function calculate() {
   button_section.addEventListener("click", calculate);
 
 
-  const calValue = screenValue * 25.4;
+  const calValue = screenValue * 100;
   console.log(calValue);
 
   let peramiterValue = document.querySelector(".final_kg_calculated_value");
