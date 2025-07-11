@@ -40,21 +40,10 @@ const User = mongoose.model('User', userSchema);
 // ✅ GET: Last 5 Users
 app.get('/api/users', async (req, res) => {
   try {
-    const users = await User.find().sort({ _id: -1 }).limit(5);
+    const users = await User.find().sort({ _id: -1 }).limit(10);
     res.json(users);
   } catch (error) {
     res.status(500).json({ message: 'Server error fetching users' });
-  }
-});
-
-// ✅ POST: Create User
-app.post('/api/users', async (req, res) => {
-  try {
-    const newUser = new User(req.body);
-    const saved = await newUser.save();
-    res.status(201).json(saved);
-  } catch (error) {
-    res.status(400).json({ message: 'Error saving user', error });
   }
 });
 
