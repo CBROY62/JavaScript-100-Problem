@@ -3,7 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <title>User Dashboard</title>
- <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+    }
+
+    nav {
+      background: #2c3e50;
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav h2 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 10px;
+    }
+
+    .user-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .user-card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .user-card h2 {
+      margin: 10px 0;
+    }
+
+    .user-card p {
+      margin: 5px 0;
+    }
+
+    .actions button {
+      margin: 5px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn-edit { background: #f39c12; }
+    .btn-save { background: #27ae60; display: none; }
+    .btn-delete { background: #e74c3c; }
+  </style>
 </head>
 <body>
 
@@ -17,104 +79,95 @@
     <div id="user-list">Loading users...</div>
   </div>
 
- <script>
-const apiURL = 'http://localhost:3000/api/users';
+  <script>
+    const apiURL = 'http://localhost:3000/api/users';
 
-fetch(apiURL)
-  .then(res => res.json())
-  .then(users => {
-    const container = document.getElementById('user-list');
-    container.innerHTML = '';
+    fetch(apiURL)
+      .then(res => res.json())
+      .then(users => {
+        const container = document.getElementById('user-list');
+        container.innerHTML = '';
 
-    users.forEach(user => {
-      const card = document.createElement('div');
-      card.className = 'user-card';
+        users.forEach(user => {
+          const card = document.createElement('div');
+          card.className = 'user-card';
 
-      card.innerHTML = `
-        <img src="https://i.pravatar.cc/150?u=${user.email}" />
-        <h2 contenteditable="false" class="name">${user.name}</h2>
-        <p>Email: <span contenteditable="false" class="email">${user.email}</span></p>
-        <p>Phone: <span contenteditable="false" class="phone">${user.phone}</span></p>
-        <p>Website: <span contenteditable="false" class="website">${user.website}</span></p>
-        <p>Company: <span contenteditable="false" class="company">${user.company?.name || ''}</span></p>
-        <div class="actions">
-          <button class="btn-edit">Edit</button>
-          <button class="btn-save" style="display:none;">Save</button>
-          <button class="btn-delete">Delete</button>
-        </div>
-      `;
+          card.innerHTML = `
+            <img src="https://i.pravatar.cc/150?u=${user.email}" />
+            <h2 contenteditable="false" class="name">${user.name}</h2>
+            <p>Email: <span contenteditable="false" class="email">${user.email}</span></p>
+            <p>Phone: <span contenteditable="false" class="phone">${user.phone}</span></p>
+            <p>Website: <span contenteditable="false" class="website">${user.website}</span></p>
+            <p>Company: <span contenteditable="false" class="company">${user.company?.name || ''}</span></p>
+            <div class="actions">
+              <button class="btn-edit">Edit</button>
+              <button class="btn-save">Save</button>
+              <button class="btn-delete">Delete</button>
+            </div>
+          `;
 
-      container.appendChild(card);
+          // Add to DOM
+          container.appendChild(card);
 
-      const name = card.querySelector('.name');
-      const email = card.querySelector('.email');
-      const phone = card.querySelector('.phone');
-      const website = card.querySelector('.website');
-      const company = card.querySelector('.company');
+          const name = card.querySelector('.name');
+          const email = card.querySelector('.email');
+          const phone = card.querySelector('.phone');
+          const website = card.querySelector('.website');
+          const company = card.querySelector('.company');
+          const editBtn = card.querySelector('.btn-edit');
+          const saveBtn = card.querySelector('.btn-save');
+          const deleteBtn = card.querySelector('.btn-delete');
 
-      const editBtn = card.querySelector('.btn-edit');
-      const saveBtn = card.querySelector('.btn-save');
-      const deleteBtn = card.querySelector('.btn-delete');
+          editBtn.addEventListener('click', () => {
+            [name, email, phone, website, company].forEach(el => el.contentEditable = true);
+            editBtn.style.display = 'none';
+            saveBtn.style.display = 'inline-block';
+          });
 
-      // Enable editing
-      editBtn.addEventListener('click', () => {
-        [name, email, phone, website, company].forEach(el => el.contentEditable = true);
-        editBtn.style.display = 'none';
-        saveBtn.style.display = 'inline-block';
-      });
+          saveBtn.addEventListener('click', () => {
+            const updated = {
+              name: name.innerText,
+              email: email.innerText,
+              phone: phone.innerText,
+              website: website.innerText,
+              company: { name: company.innerText }
+            };
 
-      // Save updated user
-      saveBtn.addEventListener('click', () => {
-        const updated = {
-          name: name.innerText.trim(),
-          email: email.innerText.trim(),
-          phone: phone.innerText.trim(),
-          website: website.innerText.trim(),
-          company: { name: company.innerText.trim() }
-        };
+            fetch(`${apiURL}/${user._id}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(updated)
+            }).then(res => {
+              if (res.ok) {
+                alert('Saved!');
+                [name, email, phone, website, company].forEach(el => el.contentEditable = false);
+                editBtn.style.display = 'inline-block';
+                saveBtn.style.display = 'none';
+              } else {
+                alert('Save failed.');
+              }
+            });
+          });
 
-        fetch(`${apiURL}/${user._id}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(updated)
-        })
-        .then(res => {
-          if (res.ok) {
-            alert('✅ User updated!');
-            [name, email, phone, website, company].forEach(el => el.contentEditable = false);
-            editBtn.style.display = 'inline-block';
-            saveBtn.style.display = 'none';
-          } else {
-            alert('❌ Failed to update.');
-          }
-        })
-        .catch(err => alert('❌ Server error: ' + err));
-      });
-
-      // Delete user
-      deleteBtn.addEventListener('click', () => {
-        if (confirm(`Delete ${user.name}?`)) {
-          fetch(`${apiURL}/${user._id}`, {
-            method: 'DELETE'
-          })
-          .then(res => {
-            if (res.ok) {
-              alert('🗑️ User deleted!');
-              card.remove();
-            } else {
-              alert('❌ Failed to delete.');
+          deleteBtn.addEventListener('click', () => {
+            if (confirm(`Delete ${user.name}?`)) {
+              fetch(`${apiURL}/${user._id}`, { method: 'DELETE' })
+                .then(res => {
+                  if (res.ok) {
+                    alert('Deleted!');
+                    card.remove();
+                  } else {
+                    alert('Delete failed.');
+                  }
+                });
             }
-          })
-          .catch(err => alert('❌ Server error: ' + err));
-        }
+          });
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('user-list').innerHTML = 'Failed to load users.';
       });
-    });
-  })
-  .catch(err => {
-    console.error(err);
-    document.getElementById('user-list').innerText = 'Error loading users.';
-  });
-</script>
-
+  </script>
 </body>
 </html>

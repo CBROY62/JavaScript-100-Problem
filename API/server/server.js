@@ -47,7 +47,18 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
-// PUT route
+// ✅ POST: Create User
+app.post('/api/users', async (req, res) => {
+  try {
+    const newUser = new User(req.body);
+    const saved = await newUser.save();
+    res.status(201).json(saved);
+  } catch (error) {
+    res.status(400).json({ message: 'Error saving user', error });
+  }
+});
+
+// ✅ PUT: Update User
 app.put('/api/users/:id', async (req, res) => {
   try {
     const updated = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -58,7 +69,7 @@ app.put('/api/users/:id', async (req, res) => {
   }
 });
 
-// DELETE route
+// ✅ DELETE: Remove User
 app.delete('/api/users/:id', async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
@@ -66,4 +77,10 @@ app.delete('/api/users/:id', async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: 'Delete failed', error });
   }
+});
+
+// Start Server
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
